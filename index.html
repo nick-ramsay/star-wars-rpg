@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
     <title>Star Wars RPG</title>
 </head>
@@ -19,9 +20,32 @@
     </header>
     <main>
         <div class="container">
-            <div class="row" id="playerChoice" style="background-color:blue">
+            <div class="row m-1" id="playerOptions">
+                <div class="col-md-3" id="obiWan" style="background-color: blue">
+                    Obi
+                </div>
+                <div class="col-md-3" id="luke" style="background-color: green">
+                    Luke
+                </div>
+                <div class="col-md-3" style="background-color: red">
+                    Sidious
+                </div>
+                <div class="col-md-3" style="background-color: orange">
+                    Maul
+                </div>
             </div>
-            <div class="row" id="enemyChoice">
+            <div class="row" id="userCharacter">
+                <h2>Your Character</h2>
+            </div>
+            <div class="row" id="enemiesAvailable">
+                <h2>Enemies Available to Attack</h2>
+            </div>
+            <div class="row" id="fightAction">
+                <h2>Fight Section</h2>
+                <button class="btn btn-danger btn-lg">Attack</button>
+            </div>
+            <div class="row" id="currentEnemy">
+                <h2>Defender</h2>
             </div>
         </div>
     </main>
