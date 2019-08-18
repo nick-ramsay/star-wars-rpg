@@ -14,24 +14,28 @@
     <title>Star Wars RPG</title>
 </head>
 
-<body>
+<body onload="pageContent()">
     <header>
         <h1 align="center">Star Wars RPG</h1>
     </header>
     <main>
         <div class="container">
             <div class="row m-1" id="playerOptions">
-                <div class="col-md-3" id="obiWan" style="background-color: blue">
-                    Obi
+                <div class="col-md-3 character" id="obiWan" data-character="obiWan">
+                    <h3>Obi</h3>
+                    <p>Health: <span id="obiWanHealth"></span></p>
                 </div>
-                <div class="col-md-3" id="luke" style="background-color: green">
-                    Luke
+                <div class="col-md-3 character" id="luke" data-character="luke">
+                    <h3>Luke</h3>
+                    <p>Health: <span id="lukeHealth"></span></p>
                 </div>
-                <div class="col-md-3" style="background-color: red">
-                    Sidious
+                <div class="col-md-3 character" id="sidious" data-character="darthSidious">
+                    <h3>Sidious</h3>
+                    <p>Health: <span id="sidiousHealth"></span></p>
                 </div>
-                <div class="col-md-3" style="background-color: orange">
-                    Maul
+                <div class="col-md-3 character" id="maul" data-character="darthMaul">
+                    <h3>Maul</h3>
+                    <p>Health: <span id="maulHealth"></span></p>
                 </div>
             </div>
             <div class="row" id="userCharacter">
@@ -40,7 +44,7 @@
             <div class="row" id="enemiesAvailable">
                 <h2>Enemies Available to Attack</h2>
             </div>
-            <div class="row" id="fightAction">
+            <div class="row" id="attack">
                 <h2>Fight Section</h2>
                 <button class="btn btn-danger btn-lg">Attack</button>
             </div>

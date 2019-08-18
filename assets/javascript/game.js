@@ -1,80 +1,84 @@
 $(document).ready(function () {
-    /*var obiWan = {
+    var obiWan = {
         healthPoints: 120, //Required attribute
         attackCount: 0,
-        attackPower: 6 + (this.attackCount * 6), //Required atribute
+        originalAttackPower: 6,
+        currentAttackPower: 6, //Required atribute... need to multiply
         counterAttackPower: 10
     };
 
     var luke = {
         healthPoints: 100, //Required attribute
         attackCount: 0,
-        attackPower: 8 + (this.attackCount * 8), //Required atribute
+        originalAttackPower: 6,
+        currentAttackPower: 8, //Required atribute
         counterAttackPower: 12
     };
 
     var darthSidious = {
         healthPoints: 150, //Required attribute
         attackCount: 0,
-        attackPower: 6 + (this.attackCount * 6), //Required atribute
+        originalAttackPower: 6,
+        currentAttackPower: 6, //Required atribute
         counterAttackPower: 10
     };
 
     var darthMaul = {
         healthPoints: 180, //Required attribute
         attackCount: 0,
-        attackPower: 5 + (this.attackCount * 5), //Required atribute
+        originalAttackPower: 5,
+        currentAttackPower: 5, //Required atribute
         counterAttackPower: 20
-    };*/
+    };
 
     var characters = {
-        obiWan: {
-            healthPoints: 120, //Required attribute
-            attackCount: 0,
-            attackPower: 6 + (this.attackCount * 6), //Required atribute
-            counterAttackPower: 10
-        },
-        luke: {
-            healthPoints: 100, //Required attribute
-            attackCount: 0,
-            attackPower: 8 + (this.attackCount * 8), //Required atribute
-            counterAttackPower: 12
-        },
-        darthSidious: {
-            healthPoints: 150, //Required attribute
-            attackCount: 0,
-            attackPower: 6 + (this.attackCount * 6), //Required atribute
-            counterAttackPower: 10
-        },
-        darthMaul: {
-            healthPoints: 180, //Required attribute
-            attackCount: 0,
-            attackPower: 5 + (this.attackCount * 5), //Required atribute
-            counterAttackPower: 20
-        }
-    };
+        obiWan: obiWan,
+        luke: luke,
+        darthSidious: darthSidious,
+        darthMaul: darthMaul
+    }; //Stores stats for characters as game progresses
 
     var userCharacter = "";
     var currentEnemy = "";
 
-
-    $("#obiWan").on("click", function (event) {
+    $(".character").on("click", function (event) {
         if (userCharacter === "") {
-            userCharacter = "obiWan";
-            $("#obiWan").appendTo("#userCharacter");
-            console.log(userCharacter);
-            console.log(currentEnemy);
-            console.log(userCharacter === "");
-            console.log(currentEnemy === "");
+            userCharacter = this.getAttribute("data-character");
+            htmlID = "#"+this.id;
+            $(htmlID).appendTo("#userCharacter");
+            $("#playerOptions").appendTo("#enemiesAvailable");
+        }
+
+        else if (userCharacter !== "" && currentEnemy === "") {
+            currentEnemy = this.getAttribute("data-character");
+            htmlID = "#"+this.id;
+            $(htmlID).appendTo("#currentEnemy");
         }
     })
 
-    $("#luke").on("click", function (event) {
-        if (userCharacter !== "" && currentEnemy === "") {
-            currentEnemy = "luke";
-            $("#luke").appendTo("#currentEnemy");
-            console.log(userCharacter);
-            console.log(currentEnemy);
+    $("#attack").on("click", function (event) {
+        if (characters[userCharacter].healthPoints >= 0) {
+            if (userCharacter !== "" && currentEnemy !== "") {
+                characters[currentEnemy].healthPoints = characters[currentEnemy].healthPoints - characters[userCharacter].currentAttackPower;
+                characters[userCharacter].attackCount += 1;
+                characters[userCharacter].currentAttackPower = characters[userCharacter].currentAttackPower + (characters[userCharacter].originalAttackPower * characters[userCharacter].attackCount);
+                characters[userCharacter].healthPoints = characters[userCharacter].healthPoints - characters[currentEnemy].counterAttackPower;
+                pageContent();
+            }
+        }
+        else if (characters[userCharacter].healthPoints < 0) {
+            userCharacter = "";
+            enemyCharacter = "";
+            alert("Game over! Try again!");
         }
     })
+
+    function pageContent() {
+        $("#obiWanHealth").text(characters.obiWan.healthPoints);
+        $("#lukeHealth").text(characters.luke.healthPoints);
+        $("#sidiousHealth").text(characters.darthSidious.healthPoints);
+        $("#maulHealth").text(characters.darthMaul.healthPoints);
+    };
+
+    window.onload = pageContent();
 })

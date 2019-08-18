@@ -1,3 +1,23 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+#obiWan {
+    background-color: blue;
+    color: white;
+}
+
+#luke {
+    background-color: green;
+    color: white;
+}
+
+#sidious {
+    background-color: red;
+    color: white;
+}
+
+#maul {
+    background-color: orange;
+    color: white;
+}
