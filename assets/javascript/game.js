@@ -30,13 +30,20 @@ $(document).ready(function () {
         currentAttackPower: 5, //Required atribute
         counterAttackPower: 20
     };
+    
+    var characters;
 
-    var characters = {
-        obiWan: obiWan,
-        luke: luke,
-        darthSidious: darthSidious,
-        darthMaul: darthMaul
+    function newGame() {
+        characters = {
+            obiWan: obiWan,
+            luke: luke,
+            darthSidious: darthSidious,
+            darthMaul: darthMaul
+        }
     }; //Stores stats for characters as game progresses
+    
+    var winCount = 0;
+    var lossCount = 0;
 
     var userCharacter = "";
     var currentEnemy = "";
@@ -79,6 +86,7 @@ $(document).ready(function () {
         $("#sidiousHealth").text(characters.darthSidious.healthPoints);
         $("#maulHealth").text(characters.darthMaul.healthPoints);
     };
-
+    
+    window.onload = newGame();
     window.onload = pageContent();
 })
