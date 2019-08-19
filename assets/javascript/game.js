@@ -39,6 +39,8 @@ $(document).ready(function () {
             luke: luke,
             darthSidious: darthSidious,
             darthMaul: darthMaul
+            userCharacter = "";
+            enemyCharacter = "";
         }
     }; //Stores stats for characters as game progresses
     
@@ -74,9 +76,11 @@ $(document).ready(function () {
             }
         }
         else if (characters[userCharacter].healthPoints < 0) {
-            userCharacter = "";
-            enemyCharacter = "";
             alert("Game over! Try again!");
+            lossCount++;
+            $(".characters).appendTo("#playerOptions");
+            newGame();
+            pageConent();
         }
     })
 
