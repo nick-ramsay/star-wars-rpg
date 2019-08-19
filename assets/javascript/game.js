@@ -30,38 +30,38 @@ $(document).ready(function () {
         currentAttackPower: 5, //Required atribute
         counterAttackPower: 20
     };
-    
-    var characters;
 
-    function newGame() {
-        characters = {
-            obiWan: obiWan,
-            luke: luke,
-            darthSidious: darthSidious,
-            darthMaul: darthMaul
-            userCharacter = "";
-            enemyCharacter = "";
-        }
-    }; //Stores stats for characters as game progresses
-    
+    var userCharacter;
+    var currentEnemy;
+
     var winCount = 0;
     var lossCount = 0;
 
-    var userCharacter = "";
-    var currentEnemy = "";
+    var characters = {
+        obiWan: obiWan,
+        luke: luke,
+        darthSidious: darthSidious,
+        darthMaul: darthMaul
+    };
+    userCharacter = "";
+    enemyCharacter = "";
+
 
     $(".character").on("click", function (event) {
         if (userCharacter === "") {
             userCharacter = this.getAttribute("data-character");
-            htmlID = "#"+this.id;
+            htmlID = "#" + this.id;
             $(htmlID).appendTo("#userCharacter");
-            $("#playerOptions").appendTo("#enemiesAvailable");
+            console.log(userCharacter);
+            console.log(enemyCharacter);
         }
 
-        else if (userCharacter !== "" && currentEnemy === "") {
+        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter) {
             currentEnemy = this.getAttribute("data-character");
-            htmlID = "#"+this.id;
+            htmlID = "#" + this.id;
             $(htmlID).appendTo("#currentEnemy");
+            console.log(userCharacter);
+            console.log(enemyCharacter);
         }
     })
 
@@ -73,14 +73,25 @@ $(document).ready(function () {
                 characters[userCharacter].currentAttackPower = characters[userCharacter].currentAttackPower + (characters[userCharacter].originalAttackPower * characters[userCharacter].attackCount);
                 characters[userCharacter].healthPoints = characters[userCharacter].healthPoints - characters[currentEnemy].counterAttackPower;
                 pageContent();
+                console.log(currentEnemy);
+                if (characters[currentEnemy].healthPoints < 0) {
+                    winCount++;
+                    htmlID = "#" + currentEnemy;
+                    $(htmlID).remove();
+                    currentEnemy = "";
+                    htmlID = "";
+                    console.log(currentEnemy);
+                }//Action to be taken when current enmy is defeated
             }
         }
-        else if (characters[userCharacter].healthPoints < 0) {
+        if (characters[userCharacter].healthPoints <= 0) {
             alert("Game over! Try again!");
             lossCount++;
-            $(".characters).appendTo("#playerOptions");
-            newGame();
-            pageConent();
+            $(".character").prependTo("#playerOptions");
+            //newGame();
+            userCharacter = "";
+            currentEnemy = "";
+            pageContent();
         }
     })
 
@@ -90,7 +101,7 @@ $(document).ready(function () {
         $("#sidiousHealth").text(characters.darthSidious.healthPoints);
         $("#maulHealth").text(characters.darthMaul.healthPoints);
     };
-    
-    window.onload = newGame();
+
+    //window.onload = newGame();
     window.onload = pageContent();
 })
