@@ -1,5 +1,6 @@
 $(document).ready(function () {
     function newGame() {
+        $(".character").remove();
         var obiWan = {
             name: "Obi Wan",
             healthPoints: 120, //Required attribute
@@ -117,6 +118,8 @@ $(document).ready(function () {
         $("#lukeHealth").text(character.luke.healthPoints);
         $("#darthSidiousHealth").text(character.darthSidious.healthPoints);
         $("#darthMaulHealth").text(character.darthMaul.healthPoints);
+        $("#winCount").text(winCount);
+        $("#lossCount").text(lossCount);
     };
 
     window.onload = newGame();
