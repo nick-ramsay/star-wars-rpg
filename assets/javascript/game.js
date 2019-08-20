@@ -45,6 +45,14 @@ $(document).ready(function () {
 
         userCharacter = "";
         currentEnemy = "";
+        var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><h3>Obi</h3><p>Health: <span id="obiWanHealth"></span></p></div>');
+        $("#playerOptions").prepend(obiWanDiv);
+        var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3>Luke</h3><p>Health: <span id="lukeHealth"></span></p></div>');
+        $("#playerOptions").prepend(lukeDiv);
+        var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3>Darth Sidious</h3><p>Health: <span id="darthSidiousHealth"></span></p></div>');
+        $("#playerOptions").prepend(darthSidiousDiv);
+        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3>Darth Maul</h3><p>Health: <span id="darthMaulHealth"></span></p></div>');
+        $("#playerOptions").prepend(darthMaulDiv);
     };
 
     var character;
@@ -58,7 +66,7 @@ $(document).ready(function () {
     enemyCharacter = "";
 
 
-    $(".character").on("click", function (event) {
+    $(document).on("click",'.character', function (event) { //Not sure why document is needed, must research more...
         if (userCharacter === "") {
             userCharacter = this.getAttribute("data-character");
             htmlID = "#" + this.id;
@@ -107,8 +115,8 @@ $(document).ready(function () {
     function pageContent() {
         $("#obiWanHealth").text(character.obiWan.healthPoints);
         $("#lukeHealth").text(character.luke.healthPoints);
-        $("#sidiousHealth").text(character.darthSidious.healthPoints);
-        $("#maulHealth").text(character.darthMaul.healthPoints);
+        $("#darthSidiousHealth").text(character.darthSidious.healthPoints);
+        $("#darthMaulHealth").text(character.darthMaul.healthPoints);
     };
 
     window.onload = newGame();
