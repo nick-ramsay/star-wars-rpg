@@ -4,6 +4,7 @@ $(document).ready(function () {
 
         userCharacter = "";
         currentEnemy = "";
+        finalEnemy = false;
 
         var obiWan = {
             name: "Obi Wan",
@@ -69,7 +70,7 @@ $(document).ready(function () {
     var enemyCharacter = "";
     
     var enemyHistory = [];
-    var finalEnemy = false;
+    var finalEnemy;
 
     $(document).on("click",'.character', function (event) { //Not sure why document is needed, must research more...
         if (userCharacter === "") {
