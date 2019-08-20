@@ -63,9 +63,11 @@ $(document).ready(function () {
     var winCount = 0;
     var lossCount = 0;
 
-    userCharacter = "";
-    enemyCharacter = "";
-
+    var userCharacter = "";
+    var enemyCharacter = "";
+    
+    var enemyHistory = [];
+    var finalEnemy;
 
     $(document).on("click",'.character', function (event) { //Not sure why document is needed, must research more...
         if (userCharacter === "") {
@@ -76,12 +78,18 @@ $(document).ready(function () {
             console.log(enemyCharacter);
         }
 
-        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter) {
+        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter && finalEnemy === true) {
             currentEnemy = this.getAttribute("data-character");
+            enemyHistory.push(this.getAttribute("data-character"));
+            if (enemyHistory.length === Object.keys(character).length - 1) {
+                finalEnemy = true;
+            }; //flags finalEnemy to know when win occurs
+            console.log(enemyHistory);
+            console.log(enemyHistory.length);
+            console.log(Object.keys(character).length);
+            console.log(finalEnemy);
             htmlID = "#" + this.id;
             $(htmlID).appendTo("#currentEnemy");
-            console.log(userCharacter);
-            console.log(enemyCharacter);
         }
     })
 
@@ -95,7 +103,6 @@ $(document).ready(function () {
                 pageContent();
                 console.log(currentEnemy);
                 if (character[currentEnemy].healthPoints < 0) {
-                    winCount++;
                     htmlID = "#" + currentEnemy;
                     $(htmlID).remove();
                     currentEnemy = "";
