@@ -5,6 +5,7 @@ $(document).ready(function () {
         userCharacter = "";
         currentEnemy = "";
         finalEnemy = false;
+        enemyHistory = [];
 
         var obiWan = {
             name: "Obi Wan",
