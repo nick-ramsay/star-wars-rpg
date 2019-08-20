@@ -1,6 +1,10 @@
 $(document).ready(function () {
     function newGame() {
         $(".character").remove();
+
+        userCharacter = "";
+        currentEnemy = "";
+
         var obiWan = {
             name: "Obi Wan",
             healthPoints: 120, //Required attribute
@@ -44,8 +48,6 @@ $(document).ready(function () {
             darthMaul: darthMaul
         };
 
-        userCharacter = "";
-        currentEnemy = "";
         var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><h3>Obi</h3><p>Health: <span id="obiWanHealth"></span></p></div>');
         $("#playerOptions").prepend(obiWanDiv);
         var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3>Luke</h3><p>Health: <span id="lukeHealth"></span></p></div>');
@@ -67,7 +69,7 @@ $(document).ready(function () {
     var enemyCharacter = "";
     
     var enemyHistory = [];
-    var finalEnemy;
+    var finalEnemy = false;
 
     $(document).on("click",'.character', function (event) { //Not sure why document is needed, must research more...
         if (userCharacter === "") {
@@ -78,16 +80,12 @@ $(document).ready(function () {
             console.log(enemyCharacter);
         }
 
-        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter && finalEnemy === true) {
+        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter) {
             currentEnemy = this.getAttribute("data-character");
             enemyHistory.push(this.getAttribute("data-character"));
             if (enemyHistory.length === Object.keys(character).length - 1) {
                 finalEnemy = true;
             }; //flags finalEnemy to know when win occurs
-            console.log(enemyHistory);
-            console.log(enemyHistory.length);
-            console.log(Object.keys(character).length);
-            console.log(finalEnemy);
             htmlID = "#" + this.id;
             $(htmlID).appendTo("#currentEnemy");
         }
@@ -101,14 +99,22 @@ $(document).ready(function () {
                 character[userCharacter].currentAttackPower = character[userCharacter].currentAttackPower + (character[userCharacter].originalAttackPower * character[userCharacter].attackCount);
                 character[userCharacter].healthPoints = character[userCharacter].healthPoints - character[currentEnemy].counterAttackPower;
                 pageContent();
-                console.log(currentEnemy);
-                if (character[currentEnemy].healthPoints < 0) {
+                if (character[currentEnemy].healthPoints < 0 && finalEnemy === false) {
                     htmlID = "#" + currentEnemy;
                     $(htmlID).remove();
                     currentEnemy = "";
                     htmlID = "";
-                    console.log(currentEnemy);
-                }//Action to be taken when current enmy is defeated
+                }//Action to be taken when current enmy is defeated but they are not FINAL enemy
+
+                if (character[currentEnemy].healthPoints < 0 && finalEnemy === true) {
+                    htmlID = "#" + currentEnemy;
+                    $(htmlID).remove();
+                    currentEnemy = "";
+                    htmlID = "";
+                    winCount++;
+                    newGame();
+                    pageContent();
+                }//Action to be taken when current FINAL enemy is defeated 
             }
         }
         if (character[userCharacter].healthPoints <= 0) {
