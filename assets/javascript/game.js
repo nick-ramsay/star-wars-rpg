@@ -67,9 +67,6 @@ $(document).ready(function () {
 
     var winCount = 0;
     var lossCount = 0;
-
-    var userCharacter = "";
-    var enemyCharacter = "";
     
     var enemyHistory = [];
     var finalEnemy;
@@ -84,8 +81,9 @@ $(document).ready(function () {
             console.log(enemyCharacter);
         }
 
-        else if (userCharacter !== "" && enemyCharacter === "" && this.getAttribute("data-character") !== userCharacter) {
+        else if (userCharacter !== "" && currentEnemy === "" && this.getAttribute("data-character") !== userCharacter) {
             currentEnemy = this.getAttribute("data-character");
+            console.log(currentEnemy);
             enemyHistory.push(this.getAttribute("data-character"));
             if (enemyHistory.length === Object.keys(character).length - 1) {
                 finalEnemy = true;
