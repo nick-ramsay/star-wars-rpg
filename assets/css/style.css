@@ -1,5 +1,16 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    background-image: url("https://www.tokkoro.com/picsup/5046003-darth-maul-obi-wan-kenobi-qui-gon-jinn.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: absolute;
+    background-size: cover;
+    margin: 0;
+    color: #ffe81f ;
+}
+
+h1 {
+    font-weight: bolder;
 }
 
 #obiWan {

@@ -8,21 +8,21 @@ $(document).ready(function () {
         enemyHistory = [];
 
         var obiWan = {
-            name: "Obi Wan",
+            name: "Obi Wan Kenobi",
             healthPoints: 120, //Required attribute
             attackCount: 0,
-            originalAttackPower: 6,
-            currentAttackPower: 6, //Required atribute... need to multiply
-            counterAttackPower: 10
+            originalAttackPower: 10,
+            currentAttackPower: 10, //Required atribute... need to multiply
+            counterAttackPower: 16
         };
 
         var luke = {
-            name: "Luke",
+            name: "Luke Skywalker",
             healthPoints: 100, //Required attribute
             attackCount: 0,
-            originalAttackPower: 6,
+            originalAttackPower: 10,
             currentAttackPower: 8, //Required atribute
-            counterAttackPower: 12
+            counterAttackPower: 15
         };
 
         var darthSidious = {
@@ -30,17 +30,18 @@ $(document).ready(function () {
             healthPoints: 150, //Required attribute
             attackCount: 0,
             originalAttackPower: 6,
-            currentAttackPower: 6, //Required atribute
-            counterAttackPower: 10
+            currentAttackPower: 25, //Required atribute
+            counterAttackPower: 12
         };
 
         var darthMaul = {
             name: "Darth Maul",
+            imageSource: "https://vignette.wikia.nocookie.net/battlefront/images/7/7d/Darth_Maul_close-up.png/revision/latest?cb=20181114015145",
             healthPoints: 180, //Required attribute
             attackCount: 0,
             originalAttackPower: 5,
-            currentAttackPower: 5, //Required atribute
-            counterAttackPower: 20
+            currentAttackPower: 20, //Required atribute
+            counterAttackPower: 10
         };
 
         character = {
@@ -50,13 +51,13 @@ $(document).ready(function () {
             darthMaul: darthMaul
         };
 
-        var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><h3>Obi</h3><p>Health: <span id="obiWanHealth"></span></p></div>');
+        var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><h3 id="obiWanName"></h3><p>Health: <span id="obiWanHealth"></span></p></div>');
         $("#playerOptions").prepend(obiWanDiv);
-        var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3>Luke</h3><p>Health: <span id="lukeHealth"></span></p></div>');
+        var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3 id="lukeName"></h3><p>Health: <span id="lukeHealth"></span></p></div>');
         $("#playerOptions").prepend(lukeDiv);
-        var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3>Darth Sidious</h3><p>Health: <span id="darthSidiousHealth"></span></p></div>');
+        var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3 id="darthSidiousName"></h3><p>Health: <span id="darthSidiousHealth"></span></p></div>');
         $("#playerOptions").prepend(darthSidiousDiv);
-        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3>Darth Maul</h3><p>Health: <span id="darthMaulHealth"></span></p></div>');
+        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" width:"50" height:"100"><p>Health: <span id="darthMaulHealth"></span></p></div>');
         $("#playerOptions").prepend(darthMaulDiv);
     };
 
@@ -75,6 +76,7 @@ $(document).ready(function () {
 
     $(document).on("click",'.character', function (event) { //Not sure why document is needed, must research more...
         if (userCharacter === "") {
+            $(".character").appendTo("#enemiesAvailable");
             userCharacter = this.getAttribute("data-character");
             htmlID = "#" + this.id;
             $(htmlID).appendTo("#userCharacter");
@@ -130,9 +132,14 @@ $(document).ready(function () {
 
     function pageContent() {
         $("#obiWanHealth").text(character.obiWan.healthPoints);
+        $("#obiWanName").text(character.obiWan.name);
         $("#lukeHealth").text(character.luke.healthPoints);
+        $("#lukeName").text(character.luke.name);
         $("#darthSidiousHealth").text(character.darthSidious.healthPoints);
+        $("#darthSidiousName").text(character.darthSidious.name);
         $("#darthMaulHealth").text(character.darthMaul.healthPoints);
+        $("#darthMaulName").text(character.darthMaul.name);
+        //$("#darthMaulImage").attr('src', character.darthMaul.imageSource);
         $("#winCount").text(winCount);
         $("#lossCount").text(lossCount);
     };
