@@ -84,7 +84,7 @@ $(document).ready(function () {
             console.log(enemyCharacter);
         }
 
-        else if (userCharacter !== "" && this.getAttribute("data-character") !== userCharacter) {
+        else if (userCharacter !== "" && enemyCharacter === "" && this.getAttribute("data-character") !== userCharacter) {
             currentEnemy = this.getAttribute("data-character");
             enemyHistory.push(this.getAttribute("data-character"));
             if (enemyHistory.length === Object.keys(character).length - 1) {
