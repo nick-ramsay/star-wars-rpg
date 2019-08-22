@@ -13,7 +13,7 @@ $(document).ready(function () {
             attackCount: 0,
             originalAttackPower: 10,
             currentAttackPower: 10, //Required atribute... need to multiply
-            counterAttackPower: 16
+            counterAttackPower: 20
         };
 
         var luke = {
@@ -22,7 +22,7 @@ $(document).ready(function () {
             attackCount: 0,
             originalAttackPower: 9,
             currentAttackPower: 9, //Required atribute
-            counterAttackPower: 15
+            counterAttackPower: 25
         };
 
         var darthSidious = {
