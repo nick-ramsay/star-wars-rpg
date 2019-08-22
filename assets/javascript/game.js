@@ -40,7 +40,7 @@ $(document).ready(function () {
             healthPoints: 180, //Required attribute
             attackCount: 0,
             originalAttackPower: 5,
-            currentAttackPower: 15, //Required atribute
+            currentAttackPower: 12, //Required atribute
             counterAttackPower: 10
         };
 
