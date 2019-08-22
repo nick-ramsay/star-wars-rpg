@@ -101,14 +101,21 @@ $(document).ready(function () {
                 character[userCharacter].currentAttackPower = character[userCharacter].currentAttackPower + (character[userCharacter].originalAttackPower * character[userCharacter].attackCount);
                 character[userCharacter].healthPoints = character[userCharacter].healthPoints - character[currentEnemy].counterAttackPower;
                 pageContent();
-                if (character[currentEnemy].healthPoints < 0 && finalEnemy === false) {
+                if (character[userCharacter].healthPoints <= 0) {
+                    alert("Game over! Try again!");
+                    lossCount++;
+                    $(".character").prependTo("#playerOptions");
+                    newGame();
+                    pageContent();
+                } //Action to be taken if attack results in user loss
+                else if (character[currentEnemy].healthPoints < 0 && finalEnemy === false) {
                     htmlID = "#" + currentEnemy;
                     $(htmlID).remove();
                     currentEnemy = "";
                     htmlID = "";
                 }//Action to be taken when current enmy is defeated but they are not FINAL enemy
 
-                if (character[currentEnemy].healthPoints < 0 && finalEnemy === true) {
+                else if (character[currentEnemy].healthPoints < 0 && finalEnemy === true) {
                     htmlID = "#" + currentEnemy;
                     $(htmlID).remove();
                     currentEnemy = "";
@@ -118,13 +125,6 @@ $(document).ready(function () {
                     pageContent();
                 }//Action to be taken when current FINAL enemy is defeated 
             }
-        }
-        if (character[userCharacter].healthPoints <= 0) {
-            alert("Game over! Try again!");
-            lossCount++;
-            $(".character").prependTo("#playerOptions");
-            newGame();
-            pageContent();
         }
     })
 
