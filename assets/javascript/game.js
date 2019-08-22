@@ -11,7 +11,7 @@ $(document).ready(function () {
             name: "Obi Wan Kenobi",
             healthPoints: 120, //Required attribute
             attackCount: 0,
-            originalAttackPower: 8,
+            originalAttackPower: 10,
             currentAttackPower: 10, //Required atribute... need to multiply
             counterAttackPower: 16
         };
@@ -20,7 +20,7 @@ $(document).ready(function () {
             name: "Luke Skywalker",
             healthPoints: 100, //Required attribute
             attackCount: 0,
-            originalAttackPower: 7,
+            originalAttackPower: 9,
             currentAttackPower: 9, //Required atribute
             counterAttackPower: 15
         };
