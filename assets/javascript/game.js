@@ -9,8 +9,8 @@ $(document).ready(function () {
 
         var obiWan = {
             name: "Obi Wan Kenobi",
+            imageSource: "",
             healthPoints: 120, //Required attribute
-            
             attackCount: 0,
             originalAttackPower: 10,
             currentAttackPower: 10, //Required atribute... need to multiply
@@ -19,6 +19,7 @@ $(document).ready(function () {
 
         var luke = {
             name: "Luke Skywalker",
+            imageSource: "",
             healthPoints: 100, //Required attribute
             attackCount: 0,
             originalAttackPower: 9,
@@ -28,6 +29,7 @@ $(document).ready(function () {
 
         var darthSidious = {
             name: "Darth Sidious",
+            imageSource: "",
             healthPoints: 150, //Required attribute
             attackCount: 0,
             originalAttackPower: 4,
