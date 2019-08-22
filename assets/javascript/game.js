@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         var darthMaul = {
             name: "Darth Maul",
-            imageSource: "https://vignette.wikia.nocookie.net/battlefront/images/7/7d/Darth_Maul_close-up.png/revision/latest?cb=20181114015145",
+            imageSource: "https://pm1.narvii.com/6965/7412a5ab6908fa6a64d6a12484fbf7fbd26bc142r1-1014-1111v2_128.jpg",
             healthPoints: 180, //Required attribute
             attackCount: 0,
             originalAttackPower: 5,
@@ -57,7 +57,7 @@ $(document).ready(function () {
         $("#playerOptions").prepend(lukeDiv);
         var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3 id="darthSidiousName"></h3><p>Health: <span id="darthSidiousHealth"></span></p></div>');
         $("#playerOptions").prepend(darthSidiousDiv);
-        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" width:"50" height:"100"><p>Health: <span id="darthMaulHealth"></span></p></div>');
+        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" class="class="img-thumbnail"><p>Health: <span id="darthMaulHealth"></span></p></div>');
         $("#playerOptions").prepend(darthMaulDiv);
     };
 
@@ -137,7 +137,7 @@ $(document).ready(function () {
         $("#darthSidiousName").text(character.darthSidious.name);
         $("#darthMaulHealth").text(character.darthMaul.healthPoints);
         $("#darthMaulName").text(character.darthMaul.name);
-        //$("#darthMaulImage").attr('src', character.darthMaul.imageSource);
+        $("#darthMaulImage").attr('src', character.darthMaul.imageSource);
         $("#winCount").text(winCount);
         $("#lossCount").text(lossCount);
     };
