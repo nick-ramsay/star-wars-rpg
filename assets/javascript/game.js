@@ -11,7 +11,7 @@ $(document).ready(function () {
             name: "Obi Wan Kenobi",
             healthPoints: 120, //Required attribute
             attackCount: 0,
-            originalAttackPower: 10,
+            originalAttackPower: 8,
             currentAttackPower: 10, //Required atribute... need to multiply
             counterAttackPower: 16
         };
@@ -20,8 +20,8 @@ $(document).ready(function () {
             name: "Luke Skywalker",
             healthPoints: 100, //Required attribute
             attackCount: 0,
-            originalAttackPower: 10,
-            currentAttackPower: 8, //Required atribute
+            originalAttackPower: 7,
+            currentAttackPower: 9, //Required atribute
             counterAttackPower: 15
         };
 
@@ -29,8 +29,8 @@ $(document).ready(function () {
             name: "Darth Sidious",
             healthPoints: 150, //Required attribute
             attackCount: 0,
-            originalAttackPower: 6,
-            currentAttackPower: 25, //Required atribute
+            originalAttackPower: 4,
+            currentAttackPower: 18, //Required atribute
             counterAttackPower: 12
         };
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
             healthPoints: 180, //Required attribute
             attackCount: 0,
             originalAttackPower: 5,
-            currentAttackPower: 20, //Required atribute
+            currentAttackPower: 15, //Required atribute
             counterAttackPower: 10
         };
 
