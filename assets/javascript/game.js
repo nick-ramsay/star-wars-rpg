@@ -94,7 +94,7 @@ $(document).ready(function () {
     })
 
     $("#attack").on("click", function (event) {
-        if (character[userCharacter].healthPoints >= 0) {
+        if (character[userCharacter].healthPoints > 0) {
             if (userCharacter !== "" && currentEnemy !== "") {
                 character[currentEnemy].healthPoints = character[currentEnemy].healthPoints - character[userCharacter].currentAttackPower;
                 character[userCharacter].attackCount += 1;
