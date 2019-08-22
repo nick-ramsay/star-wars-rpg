@@ -10,6 +10,7 @@ $(document).ready(function () {
         var obiWan = {
             name: "Obi Wan Kenobi",
             healthPoints: 120, //Required attribute
+            
             attackCount: 0,
             originalAttackPower: 10,
             currentAttackPower: 10, //Required atribute... need to multiply
