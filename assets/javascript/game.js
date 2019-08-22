@@ -102,11 +102,11 @@ $(document).ready(function () {
                 character[userCharacter].healthPoints = character[userCharacter].healthPoints - character[currentEnemy].counterAttackPower;
                 pageContent();
                 if (character[userCharacter].healthPoints <= 0) {
-                    alert("Game over! Try again!");
                     lossCount++;
                     $(".character").prependTo("#playerOptions");
                     newGame();
                     pageContent();
+                    alert("Game over! Try again!");
                 } //Action to be taken if attack results in user loss
                 else if (character[currentEnemy].healthPoints < 0 && finalEnemy === false) {
                     htmlID = "#" + currentEnemy;
