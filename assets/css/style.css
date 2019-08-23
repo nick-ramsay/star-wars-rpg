@@ -17,19 +17,27 @@ h1 {
 #obiWan {
     background-color: blue;
     color: white;
+    border: blue solid 1px;
+    border-radius: 25px;
 }
 
 #luke {
     background-color: green;
     color: white;
+    border: green solid 1px;
+    border-radius: 25px;
 }
 
 #darthSidious {
     background-color: red;
     color: white;
+    border: red solid 1px;
+    border-radius: 25px;
 }
 
 #darthMaul {
     background-color: orange;
     color: white;
+    border: orange solid 1px;
+    border-radius: 25px;
 }
