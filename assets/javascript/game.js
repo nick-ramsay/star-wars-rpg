@@ -14,7 +14,7 @@ $(document).ready(function () {
             attackCount: 0,
             originalAttackPower: 10,
             currentAttackPower: 10, //Required atribute... need to multiply
-            counterAttackPower: 20
+            counterAttackPower: 23
         };
 
         var luke = {
@@ -54,13 +54,13 @@ $(document).ready(function () {
             darthMaul: darthMaul
         };
 
-        var obiWanDiv = $('<div class="col-md-3 p-1"><div class="m-1 character" id="obiWan" data-character="obiWan"><h3 id="obiWanName"></h3><img id="obiWanImage" class="class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div></div>');
+        var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><div ><h3 id="obiWanName"></h3><img id="obiWanImage" class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div>');
         $("#playerOptions").prepend(obiWanDiv);
-        var lukeDiv = $('<div class="col-md-3 p-1"><div class="m-1 character" id="luke" data-character="luke"><h3 id="lukeName"></h3><img id="lukeImage" class="class="img-thumbnail"><p>Health: <span id="lukeHealth"></span></p></div></div>');
+        var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3 id="lukeName"></h3><img id="lukeImage" class="img-thumbnail"><p>Health: <span id="lukeHealth"></span></p></div>');
         $("#playerOptions").prepend(lukeDiv);
-        var darthSidiousDiv = $('<div class="col-md-3 p-1"><div class="m-1 character" id="darthSidious" data-character="darthSidious"><h3 id="darthSidiousName"></h3><img id="darthSidiousImage" class="class="img-thumbnail"><p>Health: <span id="darthSidiousHealth"></span></p></div></div>');
+        var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3 id="darthSidiousName"></h3><img id="darthSidiousImage" class="img-thumbnail"><p>Health: <span id="darthSidiousHealth"></span></p></div>');
         $("#playerOptions").prepend(darthSidiousDiv);
-        var darthMaulDiv = $('<div class="col-md-3 p-1"><div class="m-1 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" class="class="img-thumbnail"><p>Health: <span id="darthMaulHealth"></span></p></div></div>');
+        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" class="img-thumbnail"><p>Health: <span id="darthMaulHealth"></span></p></div>');
         $("#playerOptions").prepend(darthMaulDiv);
     };
 
