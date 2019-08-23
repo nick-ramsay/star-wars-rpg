@@ -54,13 +54,13 @@ $(document).ready(function () {
             darthMaul: darthMaul
         };
 
-        var obiWanDiv = $('<div class="col-md-3 character" id="obiWan" data-character="obiWan"><h3 id="obiWanName"></h3><img id="obiWanImage" class="class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div>');
+        var obiWanDiv = $('<div class="col-md-3 p-1 character" id="obiWan" data-character="obiWan"><div class="m-1"><h3 id="obiWanName"></h3><img id="obiWanImage" class="class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div></div>');
         $("#playerOptions").prepend(obiWanDiv);
-        var lukeDiv = $('<div class="col-md-3 character" id="luke" data-character="luke"><h3 id="lukeName"></h3><img id="lukeImage" class="class="img-thumbnail"><p>Health: <span id="lukeHealth"></span></p></div>');
+        var lukeDiv = $('<div class="col-md-3 p-1 character" id="luke" data-character="luke"><div class="m-1"><h3 id="lukeName"></h3><img id="lukeImage" class="class="img-thumbnail"><p>Health: <span id="lukeHealth"></span></p></div></div>');
         $("#playerOptions").prepend(lukeDiv);
-        var darthSidiousDiv = $('<div class="col-md-3 character" id="darthSidious" data-character="darthSidious"><h3 id="darthSidiousName"></h3><img id="darthSidiousImage" class="class="img-thumbnail"><p>Health: <span id="darthSidiousHealth"></span></p></div>');
+        var darthSidiousDiv = $('<div class="col-md-3 p-1 character" id="darthSidious" data-character="darthSidious"><div class="m-1"><h3 id="darthSidiousName"></h3><img id="darthSidiousImage" class="class="img-thumbnail"><p>Health: <span id="darthSidiousHealth"></span></p></div></div>');
         $("#playerOptions").prepend(darthSidiousDiv);
-        var darthMaulDiv = $('<div class="col-md-3 character" id="darthMaul" data-character="darthMaul"><h3 id="darthMaulName"></h3><img id="darthMaulImage" class="class="img-thumbnail"><p>Health: <span id="darthMaulHealth"></span></p></div>');
+        var darthMaulDiv = $('<div class="col-md-3 p-1 character" id="darthMaul" data-character="darthMaul"><div class="m-1"><h3 id="darthMaulName"></h3><img id="darthMaulImage" class="class="img-thumbnail"><p>Health: <span id="darthMaulHealth"></span></p></div></div>');
         $("#playerOptions").prepend(darthMaulDiv);
     };
 
