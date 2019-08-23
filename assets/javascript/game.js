@@ -54,7 +54,7 @@ $(document).ready(function () {
             darthMaul: darthMaul
         };
 
-        var obiWanDiv = $('<div class="col-md-3 p-1 character" id="obiWan" data-character="obiWan"><div class="m-1"><h3 id="obiWanName"></h3><img id="obiWanImage" class="class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div></div>');
+        var obiWanDiv = $('<div class="col-md-3 p-1 character"><div class="m-1" id="obiWan" data-character="obiWan"><h3 id="obiWanName"></h3><img id="obiWanImage" class="class="img-thumbnail"><p>Health: <span id="obiWanHealth"></span></p></div></div>');
         $("#playerOptions").prepend(obiWanDiv);
         var lukeDiv = $('<div class="col-md-3 p-1 character" id="luke" data-character="luke"><div class="m-1"><h3 id="lukeName"></h3><img id="lukeImage" class="class="img-thumbnail"><p>Health: <span id="lukeHealth"></span></p></div></div>');
         $("#playerOptions").prepend(lukeDiv);
